@@ -6,10 +6,7 @@
    * Author: Trident Embedded Solutions, LLC
    Author URI: https://profiles.wordpress.org/tesplugins/
     */
- /*Add menu unser the tool option*/
-   
-
-
+ /*Add menu under the tool option*/
    
 add_action('admin_menu', 'add_submenu_item');
  
