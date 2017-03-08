@@ -1,0 +1,76 @@
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+	
+</script>
+	<script src="http://paletton.com/widget/js/colorize.js"></script>
+	<div class="color-box bgcol">
+	<div id="color" class="bgcol-pri-lum-1">
+		<div id="hdr-box1" class="box bgcol-pri-lum-4"></div>
+		<div id="hdr-box2" class="box bgcol-pri-lum-3"></div>
+		<div id="hdr-box3" class="box bgcol-pri-lum-2"></div>
+		<div id="hdr-box4" class="box bgcol-pri-lum-0"></div>
+		<div id="hdr-box5" class="box bgcol-pri-lum-0"></div>
+		
+</div>
+</div>
+
+</head>
+<body>	
+
+
+<style>
+.color-box {
+    position: relative;
+    z-index: 9999;
+    top: 89%;
+    left: 0;
+}
+div#color div {
+    width: 18%;
+    float: left;
+    height: 35px;
+    margin: 0px 1%;
+    border-radius: 4px;
+}
+</style>
+<script>
+$( document ).ready(function() {
+	$(.bgcol)click(){
+		console.log("color");
+		alert(hello);
+	}
+    console.log( "ready!" );
+});
+$(function(){	
+$('.bgcol').tooltip({
+position: {
+			my: 'left+2 top+2px',
+			at: 'left bottom'
+			},
+		track:true,
+		show: {
+			effect: 'fadeIn',
+			delay: 0
+			},
+		hide: {
+			effect: 'fadeOut',
+			delay: 0
+			},
+		content: function(){
+			var $e = $(this), col = $e.attr('title'), data = $e.attr('col-data'),
+				str = col;
+			if (data) {
+				str = '<p>' + str + '</p><p class="info">Click for more info</p>';
+				}
+			return str;
+			}
+		})
+	.click(function(e){
+		e.stopPropagation();
+		var data = $(this).attr('col-data');
+		parent._Paletton.events.trigger('ui/preview/colinfo',{hex:data});
+		$(this).tooltip('close');
+		})
+
+	});
+</script>
